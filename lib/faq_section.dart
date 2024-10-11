@@ -3,24 +3,27 @@ import 'package:flutter/material.dart';
 class FAQSection extends StatelessWidget {
   final List<FAQItem> faqList = [
     FAQItem(
-      question: "Apa itu aplikasi kasir?",
+      question: "Apa itu Materikas?",
       answer:
-          "Aplikasi kasir adalah perangkat lunak yang membantu Anda dalam mengelola transaksi penjualan dan stok barang.",
+          "Materikas adalah perangkat lunak yang membantu Anda dalam mengelola transaksi penjualan dan stok barang.",
     ),
     FAQItem(
       question: "Apakah aplikasi ini bisa digunakan offline?",
       answer:
-          "Tidak, aplikasi kasir ini memerlukan koneksi internet untuk berfungsi dengan baik.",
+          "Ya, aplikasi kasir ini dapat digunakan secara offline. Anda dapat mengakses sebagian besar fitur, seperti mengelola stok dan membuat laporan, tanpa koneksi internet.",
     ),
     FAQItem(
-      question: "Bagaimana cara menghapus data transaksi?",
+      question: "Apakah aplikasi ini bisa scan barcode?",
       answer:
-          "Anda bisa menghapus data transaksi dari menu laporan dengan memilih transaksi yang ingin dihapus.",
+          "Ya, aplikasi ini mendukung pemindaian barcode. Anda dapat menggunakan perangkat scan barcode untuk memindai barcode produk.",
     ),
     FAQItem(
       question: "Apakah ada dukungan pelanggan?",
-      answer:
-          "Ya, kami menyediakan dukungan pelanggan 24/7 melalui email dan telepon.",
+      answer: "Ya, kami menyediakan dukungan pelanggan 24/7 melalui WhatsApp.",
+    ),
+    FAQItem(
+      question: "Apakah saya bisa mencoba Materikas sebelum berlangganan?",
+      answer: "Ya, Anda bisa mencoba Materikas secara gratis selama 7 hari.",
     ),
   ];
 
@@ -30,10 +33,10 @@ class FAQSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.white,
+      color: Colors.grey[200],
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Judul FAQ
           const Text(
@@ -41,7 +44,7 @@ class FAQSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: Colors.blueAccent,
+              color: Color(0xFFEF233C),
             ),
           ),
           const SizedBox(height: 40),

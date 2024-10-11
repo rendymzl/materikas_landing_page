@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'privacy_policy.dart';
+import 'term_and_condition.dart';
+
 class FooterSection extends StatelessWidget {
   const FooterSection({super.key});
 
@@ -49,7 +52,12 @@ class FooterSection extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
-                  // Tautan ke Kebijakan Privasi
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PrivacyPolicyPage(),
+                    ),
+                  );
                 },
                 child: const Text(
                   "Kebijakan Privasi",
@@ -59,7 +67,12 @@ class FooterSection extends StatelessWidget {
               const SizedBox(width: 20),
               TextButton(
                 onPressed: () {
-                  // Tautan ke Syarat & Ketentuan
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TermsAndConditionsPage(),
+                    ),
+                  );
                 },
                 child: const Text(
                   "Syarat & Ketentuan",

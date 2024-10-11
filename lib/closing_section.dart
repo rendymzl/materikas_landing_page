@@ -7,7 +7,7 @@ class ClosingSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.blueAccent,
+      color: Color(0xFFEF233C),
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,13 +47,14 @@ class ClosingSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               textStyle: const TextStyle(fontSize: 18),
             ),
-            child: const Text("Daftar Sekarang"),
+            child: const Text("Daftar Sekarang",
+                style: TextStyle(color: Color(0xFFEF233C))),
           ),
           const SizedBox(height: 20),
 
           // CTA Tambahan
           const Text(
-            "Atau coba versi gratis kami selama 14 hari!",
+            "Coba versi gratis kami selama 7 hari!",
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,

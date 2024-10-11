@@ -10,7 +10,7 @@ class BenefitsSection extends StatelessWidget {
       color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Judul Keuntungan
           const Text(
@@ -18,39 +18,57 @@ class BenefitsSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: Colors.blueAccent,
+              color: Color(0xFFEF233C),
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 40),
 
           // Daftar keuntungan
-          Column(
-            children: [
-              buildBenefitItem(
-                icon: Icons.timer,
-                title: "Menghemat Waktu",
-                description:
-                    "Proses transaksi yang cepat dan efisien memungkinkan Anda lebih banyak waktu untuk fokus pada bisnis.",
-              ),
-              buildBenefitItem(
-                icon: Icons.trending_up,
-                title: "Meningkatkan Penjualan",
-                description:
-                    "Dengan laporan penjualan yang akurat, Anda bisa mengidentifikasi produk laris dan meningkatkan strategi pemasaran.",
-              ),
-              buildBenefitItem(
-                icon: Icons.security,
-                title: "Keamanan Data",
-                description:
-                    "Data transaksi dan informasi pelanggan Anda tersimpan dengan aman di cloud dengan backup otomatis.",
-              ),
-              buildBenefitItem(
-                icon: Icons.support,
-                title: "Dukungan Pelanggan 24/7",
-                description:
-                    "Tim dukungan kami siap membantu Anda kapan saja jika ada pertanyaan atau masalah.",
-              ),
-            ],
+          GridView.builder(
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 900,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              childAspectRatio: 6 / 1,
+            ),
+            itemCount: 4,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              switch (index) {
+                case 0:
+                  return buildBenefitItem(
+                    icon: Icons.timer,
+                    title: "Menghemat Waktu",
+                    description:
+                        "Proses transaksi yang cepat dan efisien memungkinkan Anda lebih banyak waktu untuk fokus pada bisnis.",
+                  );
+                case 1:
+                  return buildBenefitItem(
+                    icon: Icons.trending_up,
+                    title: "Meningkatkan Penjualan",
+                    description:
+                        "Dengan laporan penjualan yang akurat, Anda bisa mengidentifikasi produk laris dan meningkatkan strategi pemasaran.",
+                  );
+                case 2:
+                  return buildBenefitItem(
+                    icon: Icons.security,
+                    title: "Keamanan Data",
+                    description:
+                        "Data transaksi dan informasi pelanggan Anda tersimpan dengan aman di cloud dengan backup otomatis.",
+                  );
+                case 3:
+                  return buildBenefitItem(
+                    icon: Icons.support,
+                    title: "Dukungan Pelanggan 24/7",
+                    description:
+                        "Tim dukungan kami siap membantu Anda kapan saja jika ada pertanyaan atau masalah.",
+                  );
+                default:
+                  return const SizedBox.shrink();
+              }
+            },
           ),
         ],
       ),
@@ -60,8 +78,12 @@ class BenefitsSection extends StatelessWidget {
   // Fungsi untuk membuat item keuntungan
   Widget buildBenefitItem(
       {IconData? icon, String? title, String? description}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(10),
+      //   border: Border.all(color: Colors.grey[300]!),
+      // ),
       child: Row(
         children: [
           // Ikon keuntungan
@@ -80,7 +102,7 @@ class BenefitsSection extends StatelessWidget {
                 Text(
                   title ?? '',
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
                   ),

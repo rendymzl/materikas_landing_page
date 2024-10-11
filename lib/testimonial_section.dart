@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class TestimonialSection extends StatelessWidget {
   const TestimonialSection({super.key});
@@ -7,7 +8,7 @@ class TestimonialSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.grey[100],
+      color: Colors.grey[200],
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
         children: [
@@ -17,33 +18,38 @@ class TestimonialSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: Colors.blueAccent,
+              color: Color(0xFFEF233C),
             ),
           ),
           const SizedBox(height: 40),
 
-          // Grid Testimoni
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+          // Slider Testimoni menggunakan carousel_slider
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 300,
+              autoPlay: true, // Otomatis bergulir
+              enlargeCenterPage: true, // Memperbesar slide di tengah
+              viewportFraction: 0.7, // Lebar relatif dari setiap item slide
+              aspectRatio: 2.0,
+            ),
+            items: [
               buildTestimonialItem(
-                imageUrl:
-                    "https://via.placeholder.com/150", // Gambar profil placeholder
+                // imageUrl: "https://via.placeholder.com/150",
                 name: "Budi Santoso",
                 feedback:
                     "Aplikasi ini sangat memudahkan saya dalam mengelola stok barang dan memantau penjualan harian. Penggunaan mudah dan laporan langsung terlihat!",
               ),
               buildTestimonialItem(
-                imageUrl: "https://via.placeholder.com/150",
-                name: "Siti Fatimah",
+                // imageUrl: "https://via.placeholder.com/150",
+                name: "Siti Aminah",
                 feedback:
-                    "Dengan aplikasi ini, semua transaksi di toko saya lebih rapi dan tertata. Laporan bisa diakses dari mana saja, sangat membantu!",
+                    "Saya sangat puas dengan aplikasi ini, sangat membantu untuk usaha kecil saya. Laporan bisa dilihat langsung, sangat praktis!",
               ),
               buildTestimonialItem(
-                imageUrl: "https://via.placeholder.com/150",
-                name: "Andi Pratama",
+                // imageUrl: "https://via.placeholder.com/150",
+                name: "Ahmad Fadli",
                 feedback:
-                    "Saya suka fitur multi-cabangnya! Bisa mengontrol semua cabang toko hanya dari satu dashboard. Sangat praktis.",
+                    "Fitur-fitur yang disediakan sangat lengkap. Sekarang saya bisa lebih mudah mengatur bisnis toko saya!",
               ),
             ],
           ),
@@ -56,8 +62,8 @@ class TestimonialSection extends StatelessWidget {
   Widget buildTestimonialItem(
       {String? imageUrl, String? name, String? feedback}) {
     return Container(
-      width: 300,
       padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -72,11 +78,11 @@ class TestimonialSection extends StatelessWidget {
       child: Column(
         children: [
           // Gambar profil pelanggan
-          CircleAvatar(
-            backgroundImage: NetworkImage(imageUrl ?? ''),
-            radius: 40,
-          ),
-          const SizedBox(height: 20),
+          // CircleAvatar(
+          //   backgroundImage: NetworkImage(imageUrl ?? ''),
+          //   radius: 40,
+          // ),
+          // const SizedBox(height: 20),
 
           // Nama pelanggan
           Text(

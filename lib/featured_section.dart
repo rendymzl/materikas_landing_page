@@ -24,51 +24,64 @@ class FeatureSection extends StatelessWidget {
           const SizedBox(height: 40),
 
           // Grid fitur dengan ikon dan deskripsi
-          GridView.count(
-            crossAxisCount: 3,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-            childAspectRatio: 5 / 3,
+          GridView.builder(
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 650,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              childAspectRatio: 7 / 4,
+            ),
+            itemCount: 6,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            children: [
-              buildFeatureItem(
-                icon: FontAwesomeIcons.chartLine,
-                title: "Laporan Penjualan Real-Time",
-                description:
-                    "Akses laporan penjualan Anda kapan saja dengan pembaruan langsung.",
-              ),
-              buildFeatureItem(
-                icon: FontAwesomeIcons.boxesStacked,
-                title: "Manajemen Stok Otomatis",
-                description:
-                    "Pantau stok barang Anda dengan sistem otomatis dan dapatkan notifikasi stok menipis.",
-              ),
-              buildFeatureItem(
-                icon: FontAwesomeIcons.cashRegister,
-                title: "Integrasi Pembayaran Digital",
-                description:
-                    "Terima pembayaran dari berbagai metode, termasuk e-wallet dan kartu kredit.",
-              ),
-              buildFeatureItem(
-                icon: FontAwesomeIcons.shop,
-                title: "Multi-Outlet Support",
-                description:
-                    "Kelola beberapa cabang toko dengan mudah dari satu dashboard.",
-              ),
-              buildFeatureItem(
-                icon: FontAwesomeIcons.cloud,
-                title: "Data Tersimpan di Cloud",
-                description:
-                    "Akses semua data transaksi Anda kapan saja dan di mana saja dengan aman.",
-              ),
-              buildFeatureItem(
-                icon: FontAwesomeIcons.users,
-                title: "Akses Multi-Pengguna",
-                description:
-                    "Berikan akses kepada pegawai dengan hak akses yang bisa diatur.",
-              ),
-            ],
+            itemBuilder: (context, index) {
+              switch (index) {
+                case 0:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.chartLine,
+                    title: "Laporan Penjualan Real-Time",
+                    description:
+                        "Akses laporan penjualan Anda kapan saja dengan pembaruan langsung.",
+                  );
+                case 1:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.boxesStacked,
+                    title: "Manajemen Stok Otomatis",
+                    description:
+                        "Pantau stok barang Anda dengan sistem otomatis dan dapatkan notifikasi stok menipis.",
+                  );
+                case 2:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.print,
+                    title: "Cetak Struk",
+                    description:
+                        "Cetak struk transaksi dengan mudah dan cepat.",
+                  );
+                case 3:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.barcode,
+                    title: "Scan Barcode Produk",
+                    description:
+                        "Scan barcode produk dengan mudah dan cepat untuk menambahkan produk ke keranjang.",
+                  );
+                case 4:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.cloud,
+                    title: "Data Tersimpan di Cloud",
+                    description:
+                        "Akses semua data transaksi Anda kapan saja dan di mana saja dengan aman.",
+                  );
+                case 5:
+                  return buildFeatureItem(
+                    icon: FontAwesomeIcons.users,
+                    title: "Akses Multi-Pengguna",
+                    description:
+                        "Berikan akses kepada pegawai dengan hak akses yang bisa diatur.",
+                  );
+                default:
+                  return const SizedBox.shrink();
+              }
+            },
           ),
         ],
       ),
@@ -78,37 +91,44 @@ class FeatureSection extends StatelessWidget {
   // Fungsi untuk membuat item fitur
   Widget buildFeatureItem(
       {IconData? icon, String? title, String? description}) {
-    return Column(
-      children: [
-        // Ikon fitur
-        Icon(
-          icon,
-          size: 50,
-          color: Colors.orangeAccent,
-        ),
-        const SizedBox(height: 20),
+    return Card(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Ikon fitur
+            Icon(
+              icon,
+              size: 50,
+              color: Colors.orangeAccent,
+            ),
+            const SizedBox(height: 20),
 
-        // Judul fitur
-        Text(
-          title ?? '',
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        const SizedBox(height: 10),
+            // Judul fitur
+            Text(
+              title ?? '',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 10),
 
-        // Deskripsi fitur
-        Text(
-          description ?? '',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[700],
-          ),
+            // Deskripsi fitur
+            Text(
+              description ?? '',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

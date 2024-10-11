@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'benefit_section.dart';
 import 'closing_section.dart';
@@ -25,23 +26,66 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const HeroSection(),
-              const OpeningSection(),
-              const FeatureSection(),
-              // const TestimonialSection(),
-              // const BenefitsSection(),
-              // const DemoSection(),
-              // const PricingSection(),
-              // const SignupSection(),
-              // FAQSection(),
-              // const ClosingSection(),
-              // const FooterSection(),
-            ],
-          ),
+      title: 'Materikas',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _signupSectionKey = GlobalKey();
+
+  // Fungsi untuk melakukan scroll ke Signup Section
+  void scrollToSignupSection() {
+    print('object');
+    final RenderBox renderBox =
+        _signupSectionKey.currentContext!.findRenderObject() as RenderBox;
+    final position = renderBox.localToGlobal(Offset.zero).dy;
+
+    _scrollController.animateTo(
+      position +
+          _scrollController
+              .offset, // Menambahkan offset untuk mendapatkan posisi relatif
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        controller:
+            _scrollController, // ScrollController untuk mengontrol scroll
+        child: Column(
+          children: [
+            HeroSection(onSignupPressed: scrollToSignupSection),
+            const OpeningSection(),
+            const FeatureSection(),
+            const BenefitsSection(),
+            const TestimonialSection(),
+            const DemoSection(),
+            const PricingSection(),
+            SignupSection(
+                key: _signupSectionKey), // SignUp section with GlobalKey
+            FAQSection(),
+            const ClosingSection(),
+            const FooterSection(),
+          ],
         ),
       ),
     );
