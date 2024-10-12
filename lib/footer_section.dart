@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'privacy_policy.dart';
 import 'term_and_condition.dart';
@@ -19,29 +20,31 @@ class FooterSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                icon: const Icon(Icons.facebook, color: Colors.white),
-                onPressed: () {
-                  // Tautan ke Facebook
-                },
+                icon: Image.asset('assets/whatsapp.png', width: 30, height: 30),
+                onPressed: () => launchUrl(Uri.parse('https://wa.link/6zlu7f')),
               ),
               IconButton(
-                icon: const Icon(Icons.facebook, color: Colors.white),
-                onPressed: () {
-                  // Tautan ke Twitter
-                },
+                icon:
+                    Image.asset('assets/instagram.png', width: 30, height: 30),
+                onPressed: () => launchUrl(Uri.parse(
+                    'https://www.instagram.com/materikas/profilecard/')),
               ),
               IconButton(
-                icon: const Icon(Icons.facebook, color: Colors.white),
-                onPressed: () {
-                  // Tautan ke Instagram
-                },
+                icon: Image.asset('assets/tiktok.png', width: 30, height: 30),
+                onPressed: () =>
+                    launchUrl(Uri.parse('https://www.tiktok.com/@materikas')),
               ),
               IconButton(
-                icon: const Icon(Icons.facebook, color: Colors.white),
-                onPressed: () {
-                  // Tautan ke LinkedIn
-                },
+                icon: Image.asset('assets/youtube.png', width: 30, height: 30),
+                onPressed: () => launchUrl(
+                    Uri.parse('https://www.youtube.com/@materikas21')),
               ),
+              // IconButton(
+              //   icon: Image.asset('assets/facebook.png', width: 30, height: 30),
+              //   onPressed: () {
+              //     // Tautan ke Facebook
+              //   },
+              // ),
             ],
           ),
           const SizedBox(height: 20),
@@ -84,12 +87,25 @@ class FooterSection extends StatelessWidget {
           const SizedBox(height: 40),
 
           // Hak Cipta
-          const Text(
-            "© 2024 Materikas. All rights reserved.",
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 14,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "© 2024 Materikas. All rights reserved.",
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(width: 20),
+              const Text(
+                "Hubungi kami di support@materikas.com | 0813 8025 3313",
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 14,
+                ),
+              ),
+            ],
           ),
         ],
       ),

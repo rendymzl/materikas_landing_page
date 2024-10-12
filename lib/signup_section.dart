@@ -79,7 +79,7 @@ class SignupSection extends StatelessWidget {
                     TextFormField(
                       controller: emailC,
                       decoration: InputDecoration(
-                        labelText: "Email",
+                        labelText: "Email / WhatsApp",
                         labelStyle: TextStyle(
                           color: Color(0xFFEF233C), // Warna label saat aktif
                         ),

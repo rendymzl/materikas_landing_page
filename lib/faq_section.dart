@@ -20,7 +20,7 @@ class FAQSection extends StatelessWidget {
     FAQItem(
       question: "Apakah ada dukungan pelanggan?",
       answer:
-          "Ya, kami menyediakan dukungan pelanggan 24/7 melalui Email: support@materikas, atau WhatsApp: 0812 8025 3313.",
+          "Ya, kami menyediakan dukungan pelanggan 24/7 melalui Email: support@materikas.com, atau WhatsApp: 0812 8025 3313.",
     ),
     FAQItem(
       question: "Apakah saya bisa mencoba Materikas sebelum berlangganan?",
