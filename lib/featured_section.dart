@@ -102,7 +102,7 @@ class FeatureSection extends StatelessWidget {
             Icon(
               icon,
               size: 50,
-              color: Colors.orangeAccent,
+              color: Color(0xFFEF233C),
             ),
             const SizedBox(height: 20),
 

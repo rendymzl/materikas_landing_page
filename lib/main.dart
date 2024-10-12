@@ -51,7 +51,6 @@ class _MainPageState extends State<MainPage> {
 
   // Fungsi untuk melakukan scroll ke Signup Section
   void scrollToSignupSection() {
-    print('object');
     final RenderBox renderBox =
         _signupSectionKey.currentContext!.findRenderObject() as RenderBox;
     final position = renderBox.localToGlobal(Offset.zero).dy;
@@ -74,16 +73,16 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           children: [
             HeroSection(onSignupPressed: scrollToSignupSection),
-            const OpeningSection(),
+            OpeningSection(onSignupPressed: scrollToSignupSection),
             const FeatureSection(),
             const BenefitsSection(),
             const TestimonialSection(),
-            const DemoSection(),
-            const PricingSection(),
+            // const DemoSection(),
+            PricingSection(onSignupPressed: scrollToSignupSection),
             SignupSection(
                 key: _signupSectionKey), // SignUp section with GlobalKey
             FAQSection(),
-            const ClosingSection(),
+            ClosingSection(onSignupPressed: scrollToSignupSection),
             const FooterSection(),
           ],
         ),

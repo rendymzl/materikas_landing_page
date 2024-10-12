@@ -85,7 +85,7 @@ class FooterSection extends StatelessWidget {
 
           // Hak Cipta
           const Text(
-            "© 2024 Nama Perusahaan. Semua Hak Dilindungi.",
+            "© 2024 Materikas. All rights reserved.",
             style: TextStyle(
               color: Colors.white70,
               fontSize: 14,

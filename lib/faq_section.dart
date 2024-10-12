@@ -19,7 +19,8 @@ class FAQSection extends StatelessWidget {
     ),
     FAQItem(
       question: "Apakah ada dukungan pelanggan?",
-      answer: "Ya, kami menyediakan dukungan pelanggan 24/7 melalui WhatsApp.",
+      answer:
+          "Ya, kami menyediakan dukungan pelanggan 24/7 melalui Email: support@materikas, atau WhatsApp: 0812 8025 3313.",
     ),
     FAQItem(
       question: "Apakah saya bisa mencoba Materikas sebelum berlangganan?",
@@ -33,7 +34,7 @@ class FAQSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.grey[200],
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,6 +47,7 @@ class FAQSection extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Color(0xFFEF233C),
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 40),
 

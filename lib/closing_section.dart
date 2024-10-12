@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ClosingSection extends StatelessWidget {
-  const ClosingSection({super.key});
+  const ClosingSection({super.key, required this.onSignupPressed});
+  final VoidCallback onSignupPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +38,11 @@ class ClosingSection extends StatelessWidget {
 
           // Tombol Pendaftaran
           ElevatedButton(
-            onPressed: () {
-              // Aksi untuk tombol pendaftaran
-              // Anda bisa menambahkan logika pendaftaran di sini
-            },
+            onPressed: onSignupPressed,
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.blueAccent,
               backgroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
               textStyle: const TextStyle(fontSize: 18),
             ),
             child: const Text("Daftar Sekarang",

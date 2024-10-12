@@ -133,7 +133,7 @@ class PrivacyPolicyPage extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               'Jika Anda memiliki pertanyaan mengenai kebijakan privasi ini atau bagaimana kami menangani data pribadi Anda, '
-              'silakan hubungi kami melalui email di support@tokokasir.com.',
+              'silakan hubungi kami melalui email di support@materikas.com.',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.justify,
             ),

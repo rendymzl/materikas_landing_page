@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PricingSection extends StatelessWidget {
-  const PricingSection({super.key});
+  const PricingSection({super.key, required this.onSignupPressed});
+  final VoidCallback onSignupPressed;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.grey[100],
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,6 +21,7 @@ class PricingSection extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Color(0xFFEF233C),
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 40),
 
@@ -31,72 +33,79 @@ class PricingSection extends StatelessWidget {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    buildPricingCard(
-                      title: "Paket Dasar",
-                      price: "\$10/bulan",
-                      features: [
-                        "Fitur dasar aplikasi kasir",
-                        "Laporan penjualan dasar",
-                        "Dukungan email",
-                      ],
+                    Expanded(
+                      child: buildPricingCard(
+                        title: "Paket Bulanan",
+                        price: "Rp 99.000/bulan",
+                        oldPrice: "Rp 150.000",
+                        features: [
+                          'Fitur full akses',
+                          'Support 24/7',
+                        ],
+                      ),
                     ),
                     const SizedBox(width: 20),
-                    buildPricingCard(
-                      title: "Paket Pro",
-                      price: "\$25/bulan",
-                      features: [
-                        "Semua fitur Paket Dasar",
-                        "Manajemen stok otomatis",
-                        "Dukungan telepon",
-                        "Integrasi pembayaran digital",
-                      ],
+                    Expanded(
+                      child: buildPricingCard(
+                        title: "Paket Tahunan",
+                        price: "Rp 990.000/tahun",
+                        oldPrice: "Rp 1.800.000",
+                        features: [
+                          'Fitur full akses',
+                          'Cukup bayar untuk 10 bulan',
+                          'Support prioritas'
+                        ],
+                      ),
                     ),
                     const SizedBox(width: 20),
-                    buildPricingCard(
-                      title: "Paket Premium",
-                      price: "\$50/bulan",
-                      features: [
-                        "Semua fitur Paket Pro",
-                        "Multi-outlet support",
-                        "Dukungan pelanggan 24/7",
-                        "Data tersimpan di cloud",
-                      ],
+                    Expanded(
+                      child: buildPricingCard(
+                        title: "Paket Selamanya",
+                        price: "Rp 2.990.000/sekali bayar",
+                        oldPrice: "Rp 3.500.000",
+                        features: [
+                          'Fitur full akses selamanya',
+                          'Sekali bayar akses selamanya',
+                          'Support prioritas'
+                        ],
+                      ),
                     ),
                   ],
                 );
               } else {
                 // Tampilan Mobile
+
                 return Column(
                   children: [
                     buildPricingCard(
-                      title: "Paket Dasar",
-                      price: "\$10/bulan",
+                      title: "Paket Bulanan",
+                      price: "Rp 99.000/bulan",
+                      oldPrice: "Rp 150.000",
                       features: [
-                        "Fitur dasar aplikasi kasir",
-                        "Laporan penjualan dasar",
-                        "Dukungan email",
+                        'Fitur full akses',
+                        'Support 24/7',
                       ],
                     ),
                     const SizedBox(height: 20),
                     buildPricingCard(
-                      title: "Paket Pro",
-                      price: "\$25/bulan",
+                      title: "Paket Tahunan",
+                      price: "Rp 990.000/tahun",
+                      oldPrice: "Rp 1.800.000",
                       features: [
-                        "Semua fitur Paket Dasar",
-                        "Manajemen stok otomatis",
-                        "Dukungan telepon",
-                        "Integrasi pembayaran digital",
+                        'Fitur full akses',
+                        'Cukup bayar untuk 10 bulan',
+                        'Support prioritas'
                       ],
                     ),
                     const SizedBox(height: 20),
                     buildPricingCard(
-                      title: "Paket Premium",
-                      price: "\$50/bulan",
+                      title: "Paket Selamanya",
+                      price: "Rp 2.990.000/sekali bayar",
+                      oldPrice: "Rp 3.500.000",
                       features: [
-                        "Semua fitur Paket Pro",
-                        "Multi-outlet support",
-                        "Dukungan pelanggan 24/7",
-                        "Data tersimpan di cloud",
+                        'Fitur full akses selamanya',
+                        'Sekali bayar akses selamanya',
+                        'Support prioritas'
                       ],
                     ),
                   ],
@@ -111,8 +120,12 @@ class PricingSection extends StatelessWidget {
 
   // Fungsi untuk membuat kartu harga
   Widget buildPricingCard(
-      {String? title, String? price, List<String>? features}) {
+      {String? title,
+      String? price,
+      String? oldPrice,
+      List<String>? features}) {
     return Container(
+      height: 300,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -126,53 +139,72 @@ class PricingSection extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Judul Paket
-          Text(
-            title ?? '',
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
-          ),
-          const SizedBox(height: 10),
-
-          // Harga Paket
-          Text(
-            price ?? '',
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.orangeAccent,
-            ),
-          ),
-          const SizedBox(height: 20),
-
-          // Daftar Fitur
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: features?.map((feature) {
-                  return Text(
-                    "• $feature",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[700],
+            children: [
+              Text(
+                title ?? '',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              // Harga Paket
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    price ?? '',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFEF233C),
                     ),
-                  );
-                }).toList() ??
-                [],
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    oldPrice ?? '',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Daftar Fitur
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: features?.map((feature) {
+                      return Text(
+                        "• $feature",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[700],
+                        ),
+                      );
+                    }).toList() ??
+                    [],
+              ),
+            ],
           ),
+
           const SizedBox(height: 30),
 
           // Tombol Langganan
           ElevatedButton(
-            onPressed: () {
-              // Aksi untuk tombol langganan
-            },
+            onPressed: onSignupPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFFEF233C),
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
               textStyle: const TextStyle(fontSize: 18, color: Colors.white),
             ),
             child: const Text("Langganan Sekarang",

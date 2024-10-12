@@ -20,13 +20,14 @@ class TestimonialSection extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Color(0xFFEF233C),
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 40),
 
           // Slider Testimoni menggunakan carousel_slider
           CarouselSlider(
             options: CarouselOptions(
-              height: 300,
+              height: 240,
               autoPlay: true, // Otomatis bergulir
               enlargeCenterPage: true, // Memperbesar slide di tengah
               viewportFraction: 0.7, // Lebar relatif dari setiap item slide
@@ -76,6 +77,7 @@ class TestimonialSection extends StatelessWidget {
         ],
       ),
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Gambar profil pelanggan
           // CircleAvatar(

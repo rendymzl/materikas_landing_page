@@ -43,7 +43,7 @@ class TermsAndConditionsPage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              'Dengan mengunduh atau menggunakan aplikasi kasir kami, Anda setuju untuk terikat oleh Syarat dan Ketentuan yang dijelaskan di bawah ini. '
+              'Dengan mengunduh atau menggunakan aplikasi Materikas, Anda setuju untuk terikat oleh Syarat dan Ketentuan yang dijelaskan di bawah ini. '
               'Jika Anda tidak menyetujui persyaratan ini, harap jangan menggunakan aplikasi kami.',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.justify,
@@ -142,7 +142,7 @@ class TermsAndConditionsPage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              'Jika Anda memiliki pertanyaan mengenai Syarat dan Ketentuan ini, silakan hubungi kami melalui email di support@tokokasir.com.',
+              'Jika Anda memiliki pertanyaan mengenai Syarat dan Ketentuan ini, silakan hubungi kami melalui email di support@materikas.com.',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.justify,
             ),

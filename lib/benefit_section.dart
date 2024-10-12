@@ -14,7 +14,7 @@ class BenefitsSection extends StatelessWidget {
         children: [
           // Judul Keuntungan
           const Text(
-            "Keuntungan Menggunakan Aplikasi Kasir Kami",
+            "Keuntungan Menggunakan Materikas",
             style: TextStyle(
               fontSize: 36,
               fontWeight: FontWeight.bold,
@@ -30,7 +30,7 @@ class BenefitsSection extends StatelessWidget {
               maxCrossAxisExtent: 900,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
-              childAspectRatio: 6 / 1,
+              childAspectRatio: 5 / 1,
             ),
             itemCount: 4,
             shrinkWrap: true,
@@ -90,7 +90,7 @@ class BenefitsSection extends StatelessWidget {
           Icon(
             icon,
             size: 40,
-            color: Colors.orangeAccent,
+            color: Color(0xFFEF233C),
           ),
           const SizedBox(width: 20),
 
